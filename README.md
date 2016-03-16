@@ -13,7 +13,7 @@ Boilerplate to start a new project with [React](https://facebook.github.io/react
 * The setup is as simple as it gets (at least with javascript). You should have no problem extending it to your needs.
 
 
-## Quick Start
+## Quick start
 
 Get a clean copy:
 
@@ -42,3 +42,10 @@ It will run on the `static` directory and add `bundle.js` in memory (you won't s
     npm run build
 
 This command will copy `static` directory into `build` and include the uglified `bundle.js`. The `build` directory is now a self-contained react application. You just have to serve it's contents with your favorite static server (apache, nginx, etc).
+
+
+## Type checking
+
+    npm run flow
+
+This command will type check all js files in the root directory using [Flow](http://flowtype.org/), apart from files in `node_modules` or `bundle`. `app/app.js` will contain examples of the type annotations used by the tool. For details on how it works, refer to [the docs](http://flowtype.org/docs/getting-started.html#_).
