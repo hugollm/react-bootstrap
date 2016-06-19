@@ -5,13 +5,7 @@ class App extends React.Component
 {
     render()
     {
-        var message: React.Element = this.renderMessage('Hello World');
-        return <h1>{message}</h1>;
-    }
-
-    renderMessage(message: string): React.Element
-    {
-        return <em>{message}</em>;
+        return <h1>Hello World</h1>;
     }
 }
 
