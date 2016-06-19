@@ -5,12 +5,14 @@ Boilerplate to start a new project with [React](https://facebook.github.io/react
 
 ## Features
 
-* Get a working javascript project without the setup fatigue.
+* Working "hello world" application out of the box.
 * Write your code using new javascript features from es2015 (import, export, class, etc).
 * Write your react components with JSX.
-* Development server with a fast live reload.
-* Uglified build.
-* The setup is as simple as it gets (at least with javascript). You should have no problem extending it to your needs.
+* Development server with hot module replacement for react components and styles. This means you will not be annoyed by a page refresh everytime you change something.
+* Write your styles in Sass. Keep the files close to your components.
+* Source maps. You can find errors from browser without having to read bundle code.
+* Optimized build with uglify.
+* You can safely heavy cache your assets in production. The build command generates references with unique hashes.
 
 
 ## Quick Start
@@ -32,13 +34,21 @@ Install dependencides and run development server:
 
     npm run server
 
-This will start a desevolpment server on `localhost:8080`. You should see a "Hello World" message in the browser when you open it.
+This will start a development server on `localhost:8080`. You should see a "Hello World" message in the browser when you open it.
 
-It will run on the `static` directory and add `bundle.js` in memory (you won't see the file). The bundle is built with `js` files in `app` directory. Changes made to your app are automatically reflected upon your browser tab (thanks to `webpack-dev-server` magick).
+It will run on the `static` directory and add `bundle.js` in memory (you won't see the file). The bundle is built with `js` files in `app` directory. Changes made to your app are automatically reflected upon your browser tab.
 
 
 ## Build command
 
     npm run build
 
-This command will copy `static` directory into `build` and include the uglified `bundle.js`. The `build` directory is now a self-contained react application. You just have to serve it's contents with your favorite static server (apache, nginx, etc).
+This command will generate a standalone working application in the `build` directory. You just have to serve it's contents with your favorite static server (apache, nginx, etc). You can test it like this:
+
+    npm install http-server
+    http-server build
+
+Note: You should see your `index.html` file from `static` directory there, but the bundle script reference will now be a unique hash.
+Styles are included in runtime.
+
+Since the build command generates unique hashes for the assets (js, css), you can safely heavy cache those, dramatically improving user experience.
