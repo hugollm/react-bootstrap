@@ -8,7 +8,7 @@ console.log('-------------------------------------------');
 
 
 var config = {
-    entry: './app/index',
+    entry: './app/main',
     module: {
         loaders: []
     }
@@ -18,12 +18,12 @@ var config = {
 var loaders = {
     hot: {
         test: /\.js$/,
+        exclude: __dirname + '/node_modules',
         loader: 'react-hot',
-        include: __dirname + '/app',
     },
     babel: {
         test: /\.js$/,
-        include: __dirname + '/app',
+        exclude: __dirname + '/node_modules',
         loader: 'babel',
         query: {
             presets: ['es2015', 'react']
@@ -31,13 +31,13 @@ var loaders = {
     },
     stylesDev: {
         test: /\.s?css$/,
+        exclude: __dirname + '/node_modules',
         loaders: ['style', 'css', 'sass'],
-        include: __dirname + '/app',
     },
     stylesBuild: {
         test: /\.s?css$/,
+        exclude: __dirname + '/node_modules',
         loaders: ['style/url', 'file?name=[hash].css', 'extract', 'css', 'sass'],
-        include: __dirname + '/app',
     }
 };
 
