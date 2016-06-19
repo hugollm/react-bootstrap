@@ -2,11 +2,6 @@ var build = Boolean(process.env.BUILD);
 var dev = !build;
 
 
-console.log('-------------------------------------------');
-console.log(dev ? 'DEV MODE' : 'BUILD MODE');
-console.log('-------------------------------------------');
-
-
 var config = {
     entry: './app/main',
     module: {
@@ -49,7 +44,7 @@ if (dev) {
 }
 
 if (build) {
-    config['output'] = {path: 'build', filename: 'bundle.js'};
+    config['output'] = {path: 'build', filename: '[hash].js'};
     config['module']['loaders'] = [loaders.hot, loaders.babel, loaders.stylesBuild];
 }
 

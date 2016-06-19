@@ -1,7 +1,7 @@
 {
   "scripts": {
     "server": "webpack-dev-server --content-base static --inline --hot",
-    "build": "rm -rf build/* && BUILD=1 webpack && uglifyjs build/bundle.js --output build/bundle.js && cp -r static/* build"
+    "build": "node build.js"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
