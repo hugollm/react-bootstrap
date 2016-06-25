@@ -36,7 +36,7 @@ Install dependencides and run development server:
 
 This will start a development server on `localhost:8080`. You should see a "Hello World" message in the browser when you open it.
 
-It will run on the `static` directory and add `bundle.js` in memory (you won't see the file). The bundle is built with `js` files in `app` directory. Changes made to your app are automatically reflected upon your browser tab.
+It will run on the `static` directory and add `bundle.js` in memory (you won't see the file). The bundle is built with `js` files imported from the entrypoint `main.js`. Changes made to your code are automatically reflected upon your browser tab.
 
 
 ## Build command
