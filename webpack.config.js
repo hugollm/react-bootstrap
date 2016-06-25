@@ -3,7 +3,7 @@ var dev = !build;
 
 
 var config = {
-    entry: './app/main',
+    entry: './main',
     module: {
         loaders: []
     }
