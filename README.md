@@ -10,6 +10,7 @@ Boilerplate to start a new project with [React](https://facebook.github.io/react
 * Write your react components with JSX.
 * Development server with hot module replacement for react components and styles. This means you will not be annoyed by a page refresh everytime you change something.
 * Write your styles in Sass. Keep the files close to your components.
+* You can write your imports relative to `src` directory. No need to have imports like `../../dir/lib`.
 * Source maps. You can find errors from browser without having to read bundle code.
 * Optimized build with uglify.
 * You can safely heavy cache your assets in production. The build command generates references with unique hashes.
