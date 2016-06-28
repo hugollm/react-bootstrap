@@ -4,6 +4,9 @@ var dev = !build;
 
 var config = {
     entry: './main',
+    resolve: {
+        root: __dirname + '/src',
+    },
     module: {
         loaders: []
     }
