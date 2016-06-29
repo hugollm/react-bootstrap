@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 var build = Boolean(process.env.BUILD);
 var dev = !build;
 
@@ -40,6 +42,17 @@ var loaders = {
 };
 
 
+plugins = {
+    nodeEnvProduction: new webpack.DefinePlugin({
+        'process.env': {'NODE_ENV': '"production"'}
+    }),
+    uglify: new webpack.optimize.UglifyJsPlugin({
+        compress: {warnings: true}
+    }),
+    dedupe: new webpack.optimize.DedupePlugin()
+};
+
+
 if (dev) {
     config['output'] = {path: 'static', filename: 'bundle.js'};
     config['module']['loaders'] = [loaders.hot, loaders.babel, loaders.stylesDev];
@@ -49,6 +62,7 @@ if (dev) {
 if (build) {
     config['output'] = {path: 'build', filename: '[hash].js'};
     config['module']['loaders'] = [loaders.hot, loaders.babel, loaders.stylesBuild];
+    config['plugins'] = [plugins.nodeEnvProduction, plugins.dedupe, plugins.uglify];
 }
 
 

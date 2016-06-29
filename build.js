@@ -7,7 +7,6 @@ function main()
 {
     clearBuildDirectory();
     var bundleName = buildAndGetBundleName();
-    uglifyBundle(bundleName);
     copyStaticDirectory();
     injectBundleNameOnIndex(bundleName);
 }
@@ -23,12 +22,6 @@ function buildAndGetBundleName()
     var json = JSON.parse(jsonString);
     var bundleName = json.assetsByChunkName.main;
     return bundleName;
-}
-
-function uglifyBundle(bundleName)
-{
-    var bundleFile = 'build/' + bundleName;
-    exec('uglifyjs build/' + bundleName + ' --output build/' + bundleName);
 }
 
 function copyStaticDirectory()
