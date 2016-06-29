@@ -61,7 +61,7 @@ if (dev) {
 
 if (build) {
     config['output'] = {path: 'build', filename: '[hash].js'};
-    config['module']['loaders'] = [loaders.hot, loaders.babel, loaders.stylesBuild];
+    config['module']['loaders'] = [loaders.babel, loaders.stylesBuild];
     config['plugins'] = [plugins.nodeEnvProduction, plugins.dedupe, plugins.uglify];
 }
 
