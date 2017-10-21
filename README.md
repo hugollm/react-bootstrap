@@ -6,14 +6,14 @@ Boilerplate to start a new project with [React](https://facebook.github.io/react
 ## Features
 
 * Working "hello world" application out of the box.
-* Write your code using new javascript features from es2015 (import, export, class, etc).
+* Write your code using the newest javascript features.
 * Write your react components with JSX.
-* Development server with hot module replacement for react components and styles. This means you will not be annoyed by a page refresh everytime you change something.
+* Development server with hot module replacement for styles. This means you will not be annoyed by a page refresh everytime you change a color.
 * Write your styles in Sass. Keep the files close to your components.
 * You can write your imports relative to `src` directory. No need to have imports like `../../dir/lib`.
 * Source maps. You can find errors from browser without having to read bundle code.
 * Optimized build with uglify.
-* You can safely heavy cache your assets in production. The build command generates references with unique hashes.
+* You can safely heavy cache the bundle in production. The build command generates a reference with a unique hash.
 
 
 ## Quick Start
@@ -25,19 +25,19 @@ Get a clean copy:
     rm -rf .git
     git init
 
-Install dependencides and run development server:
+Install dependencides and start development server:
 
     npm install
-    npm run server
+    npm start
 
 
 ## Development server
 
-    npm run server
+    npm start
 
 This will start a development server on `localhost:8080`. You should see a "Hello World" message in the browser when you open it.
 
-It will run on the `static` directory and add `bundle.js` in memory (you won't see the file). The bundle is built with `js` files imported from the entrypoint `main.js`. Changes made to your code are automatically reflected upon your browser tab.
+It will run on the `static` directory and add `bundle.js` in memory (you won't see the file). The bundle is built with `js` files imported from the entrypoint `main.js`. Changes made to your code will cause a refresh in your browser tab.
 
 
 ## Build command
@@ -50,6 +50,6 @@ This command will generate a standalone working application in the `build` direc
     http-server build
 
 Note: You should see your `index.html` file from `static` directory there, but the bundle script reference will now be a unique hash.
-Styles are included in runtime.
+Styles are contained in the javascript bundle and are included at runtime.
 
-Since the build command generates unique hashes for the assets (js, css), you can safely heavy cache those, dramatically improving user experience.
+Since the build command generates unique hashes for the javascript bundle, you can safely heavy cache that, dramatically improving user experience.
