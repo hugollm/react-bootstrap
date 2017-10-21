@@ -1,4 +1,4 @@
-# React Bootstrap
+# React Start
 
 Boilerplate to start a new project with [React](https://facebook.github.io/react/).
 
@@ -20,7 +20,7 @@ Boilerplate to start a new project with [React](https://facebook.github.io/react
 
 Get a clean copy:
 
-    git clone https://github.com/hugollm/react-bootstrap.git myproject
+    git clone https://github.com/hugollm/react-start.git myproject
     cd myproject
     rm -rf .git
     git init
