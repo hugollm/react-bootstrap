@@ -1,69 +1,54 @@
 var webpack = require('webpack');
 
-var build = Boolean(process.env.BUILD);
-var dev = !build;
-
+var in_build = Boolean(process.env.BUILD);
+var in_dev = !in_build;
 
 var config = {
-    entry: './main',
+    entry: './main.js',
     resolve: {
-        root: __dirname + '/src',
+        modules: [
+            __dirname + '/src',
+            __dirname + '/node_modules',
+        ],
     },
-    module: {
-        loaders: []
-    }
+    'output': {},
+    'module': {},
+    'plugins': [],
 };
 
-
-var loaders = {
-    hot: {
+var rules = {
+    js: {
         test: /\.js$/,
         exclude: __dirname + '/node_modules',
-        loader: 'react-hot',
-    },
-    babel: {
-        test: /\.js$/,
-        exclude: __dirname + '/node_modules',
-        loader: 'babel',
-        query: {
-            presets: ['es2015', 'react']
+        use: {
+            loader: 'babel-loader',
+            options: {
+                presets: ['env', 'react'],
+            },
         },
     },
-    stylesDev: {
-        test: /\.s?css$/,
+    sass: {
+        test: /\.scss$/,
         exclude: __dirname + '/node_modules',
-        loaders: ['style', 'css', 'sass'],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
     },
-    stylesBuild: {
-        test: /\.s?css$/,
-        exclude: __dirname + '/node_modules',
-        loaders: ['style/url', 'file?name=[hash].css', 'extract', 'css', 'sass'],
-    }
 };
-
 
 plugins = {
-    nodeEnvProduction: new webpack.DefinePlugin({
-        'process.env': {'NODE_ENV': '"production"'}
-    }),
-    uglify: new webpack.optimize.UglifyJsPlugin({
-        compress: {warnings: true}
-    }),
-    dedupe: new webpack.optimize.DedupePlugin()
+    productionEnv: new webpack.EnvironmentPlugin({ NODE_ENV: 'production' }),
+    uglify: new webpack.optimize.UglifyJsPlugin(),
 };
 
-
-if (dev) {
-    config['output'] = {path: 'static', filename: 'bundle.js'};
-    config['module']['loaders'] = [loaders.hot, loaders.babel, loaders.stylesDev];
-    config['devtool'] = 'source-map';
+if (in_dev) {
+    config.output = { path: __dirname + '/static', filename: 'bundle.js' };
+    config.module.rules = [rules.js, rules.sass];
+    config.devtool = 'source-map';
 }
 
-if (build) {
-    config['output'] = {path: 'build', filename: '[hash].js'};
-    config['module']['loaders'] = [loaders.babel, loaders.stylesBuild];
-    config['plugins'] = [plugins.nodeEnvProduction, plugins.dedupe, plugins.uglify];
+if (in_build) {
+    config.output = { path: __dirname + '/build', filename: '[hash].js' };
+    config.module.rules = [rules.js, rules.sass];
+    config.plugins = [plugins.productionEnv, plugins.uglify];
 }
-
 
 module.exports = config;
