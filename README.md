@@ -12,8 +12,8 @@ Boilerplate to start a new project with [React](https://facebook.github.io/react
 * Write your styles in Sass. Keep the files close to your components.
 * You can write your imports relative to `src` directory. No need to have imports like `../../dir/lib`.
 * Source maps. You can find errors from browser without having to read bundle code.
-* Optimized build with uglify.
-* You can safely heavy cache the bundle in production. The build command generates a reference with a unique hash.
+* Optimized build with proper environment configuration and uglify. Build command emits bundle that starts at just ~123 KB (~52 KB with Gzip).
+* You can safely heavy cache the generated bundle in production. The build command makes sure the generated `index.html` file references the bundle with a unique hash.
 
 
 ## Quick Start
@@ -46,7 +46,7 @@ It will run on the `static` directory and add `bundle.js` in memory (you won't s
 
 This command will generate a standalone working application in the `build` directory. You just have to serve it's contents with your favorite static server (apache, nginx, etc). You can test it like this:
 
-    npm install http-server
+    npm install -g http-server
     http-server build
 
 Note: You should see your `index.html` file from `static` directory there, but the bundle script reference will now be a unique hash.
