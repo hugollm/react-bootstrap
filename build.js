@@ -28,7 +28,7 @@ function copyStaticDirectory() {
 function injectBundleNameOnIndex(bundleName) {
     var indexFile = 'build/index.html';
     fs.readFile(indexFile, 'utf8', (error, fileContents) => {
-        var newFileContents = fileContents.replace(/bundle\.js/g, bundleName);
+        var newFileContents = fileContents.replace(/app-bundle\.js/g, bundleName);
         fs.writeFile(indexFile, newFileContents, () => {});
     });
 }
