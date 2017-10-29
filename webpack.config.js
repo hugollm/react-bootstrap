@@ -41,6 +41,7 @@ plugins = {
 
 if (in_dev) {
     config.output = { path: __dirname + '/static', filename: 'bundle.js' };
+    rules.js.use.options.presets.push('react-hmre');
     config.module.rules = [rules.js, rules.sass];
     config.devtool = 'source-map';
 }
