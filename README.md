@@ -5,15 +5,15 @@ Boilerplate to start a new project with [React](https://facebook.github.io/react
 
 ## Features
 
-* Working "hello world" application out of the box.
-* Write your code using the newest javascript features.
-* Write your react components with JSX.
-* Development server with hot module replacement for styles. This means you will not be annoyed by a page refresh everytime you change a color.
-* Write your styles in Sass. Keep the files close to your components.
-* You can write your imports relative to `src` directory. No need to have imports like `../../dir/lib`.
-* Source maps. You can find errors from browser without having to read bundle code.
-* Optimized build with proper environment configuration and uglify. Build command emits bundle that starts at just ~123 KB (~52 KB with Gzip).
-* You can safely heavy cache the generated bundle in production. The build command makes sure the generated `index.html` file references the bundle with a unique hash.
+* Working "hello world" out of the box.
+* Write your code using the newest javascript features (babel env).
+* Write your react components with JSX (babel react).
+* Hot module replacement for components and styles. This means you will not be annoyed by a page refresh everytime you change something.
+* Write your styles with Sass. Keep the files close to your components.
+* You can write your imports relative to `src` directory. No need to have imports like `../../../dir/file`.
+* Source maps. You can find errors from your browser without having to stare at bundle code.
+* Optimized build for production. Emitted bundle starts at just ~123KB (~52KB Gzipped).
+* Clients can safely cache the built js bundle. Build command makes sure the generated `index.html` references the bundle by hash.
 
 
 ## Quick Start
@@ -21,6 +21,7 @@ Boilerplate to start a new project with [React](https://facebook.github.io/react
 Get a clean copy:
 
     git clone https://github.com/hugollm/react-start.git myproject
+
     cd myproject
     rm -rf .git
     git init
